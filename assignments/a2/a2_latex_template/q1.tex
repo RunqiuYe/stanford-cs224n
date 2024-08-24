@@ -51,6 +51,14 @@ Prove that the naive-softmax loss (Equation \ref{naive-softmax}) is the same as 
 
 Your answer should be one line. You may describe your answer in words.
 
+\ifans{
+    Since the true distributino $\by$ is a one-hot vector on entry $o$, the sum is zero for all terms but one. Therefore, we have
+    \[
+    -\sum_{w \in \text{Vocab}} \by_w \log(\hat{\by}_w) = - \log (\hat{\by}_o),
+    \]
+    as desired.
+}
+
 
 % Question 1-B
 \part[6]
@@ -69,7 +77,24 @@ Your answer should be one line. You may describe your answer in words.
 
 \end{enumerate}
 
-
+\ifans{
+    \begin{enumerate}[label=\roman*.]
+        \item As proved in (a), the naive-softmax loss
+        \[
+        \bJ_{\text{naive-softmax}}(\bv_c, o, \bU) = -\sum_{w \in \text{Vocab}} \by_w \log(\hat{\by}_w) = - \log( \hat{\by}_o ).
+        \]
+        Also, we know that
+        \[
+        \hat{\by}_o = P(O=o \mid C=c) = \frac{\exp(\bu_{o}^\top \bv_c)}{\sum_{w \in \text{Vocab}} \exp(\bu_{w}^\top \bv_c)}.
+        \]
+        Therefore,
+        \[
+        \begin{aligned}
+            \pd{\bJ_{\text{naive-softmax}}}{\bv_c} = \frac{1}{\hat{\by}_o} \left( \sum_x \frac{\exp(\bu_x^\top \bv_c)}{\sum_{w} \exp(\bu_w^\top \bv_c)} \bu_x \right) = \frac{1}{\by^\top \hat{\by}} \bU (\hat{\by} - \by).
+        \end{aligned}
+        \]
+    \end{enumerate}
+}
 
 % Question 1-C
 \part[1]
