@@ -81,11 +81,11 @@ Your answer should be one line. You may describe your answer in words.
     \begin{enumerate}[label=\roman*.]
         \item As proved in (a), the naive-softmax loss
         \[
-        \bJ_{\text{naive-softmax}}(\bv_c, o, \bU) = -\sum_{w \in \text{Vocab}} \by_w \log(\hat{\by}_w) = - \log( \hat{\by}_o ).
+        \bJ_{\text{naive-softmax}}(\bv_c, o, \bU) = -\sum_{w} \by_w \log(\hat{\by}_w) = - \log( \hat{\by}_o ).
         \]
         Also, we know that
         \[
-        \hat{\by}_o = P(O=o \mid C=c) = \frac{\exp(\bu_{o}^\top \bv_c)}{\sum_{w \in \text{Vocab}} \exp(\bu_{w}^\top \bv_c)}.
+        \hat{\by}_o = P(O=o \mid C=c) = \frac{\exp(\bu_{o}^\top \bv_c)}{\sum_{w} \exp(\bu_{w}^\top \bv_c)}.
         \]
         Therefore,
         \[
@@ -95,7 +95,7 @@ Your answer should be one line. You may describe your answer in words.
         \]
 
         \item The gradient is zero when $\hat \by = \by$.
-        \item The term $\bU \hat \by$ is the expected outside word for $c$, and $\bU \by$ is the actual outside word for $c$.
+        \item The term $\bU \hat \by$ is the expected outside word for $c$, and $\bU \by$ is the actual outside word for $c$. 
     \end{enumerate}
 }
 
