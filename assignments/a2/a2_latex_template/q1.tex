@@ -90,12 +90,12 @@ Your answer should be one line. You may describe your answer in words.
         Therefore,
         \[
         \begin{aligned}
-            \pd{\bJ_{\text{naive-softmax}}}{\bv_c} = \frac{1}{\hat{\by}_o} \left( \sum_x \frac{\exp(\bu_x^\top \bv_c)}{\sum_{w} \exp(\bu_w^\top \bv_c)} \bu_x \right) = \frac{1}{\by^\top \hat{\by}} \bU (\hat{\by} - \by).
+            \pd{\bJ_{\text{naive-softmax}}}{\bv_c} = - \bu_o + \sum_x \frac{\exp(\bu_x^\top \bv_c)}{\sum_{w} \exp(\bu_w^\top \bv_c)} \bu_x = \bU (\hat{\by} - \by).
         \end{aligned}
         \]
 
         \item The gradient is zero when $\hat \by = \by$.
-        \item The term $\bU \hat \by$ is the expected outside word for $c$, and $\bU \by$ is the actual outside word for $c$. 
+        \item The term $\bU \hat \by$ is the expected outside word for $c$, and $\bU \by$ is the actual outside word for $c$. When the gradient is subtracted from the word vector $v_c$, the difference between the expected outside word and the actual outside word decreases.
     \end{enumerate}
 }
 

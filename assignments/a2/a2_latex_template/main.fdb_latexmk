@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1724543808 "/Users/runqiuye/Desktop/studies/computer-science/ai-ml/stanford-cs224n/assignments/a2/a2_latex_template/main.tex" "main.pdf" "main" 1724543813
+["pdflatex"] 1724544090 "/Users/runqiuye/Desktop/studies/computer-science/ai-ml/stanford-cs224n/assignments/a2/a2_latex_template/main.tex" "main.pdf" "main" 1724544095
   "/Users/runqiuye/Desktop/studies/computer-science/ai-ml/stanford-cs224n/assignments/a2/a2_latex_template/main.tex" 1724296780 5780 e4ea20328b97e99a2302583f7f7c0ab8 ""
   "/dev/null" 0 -1 0 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -281,10 +281,10 @@
   "dep_parses.tex" 1712719398 3041 ceeb222f2d16df528c23e109e4f18834 ""
   "example.png" 1712719398 111746 d5989e276dca79a0b2e5e84effcf2ff8 ""
   "macros.tex" 1712719398 660 0aa7caf33ddb384446099d7bcd0f954b ""
-  "main.aux" 1724543813 3875 39ca992bf2c951df70510bb08c7edc34 "pdflatex"
+  "main.aux" 1724544094 3875 39ca992bf2c951df70510bb08c7edc34 "pdflatex"
   "main.out" 0 -1 0 "pdflatex"
   "main.tex" 1724296780 5780 e4ea20328b97e99a2302583f7f7c0ab8 ""
-  "q1.tex" 1724543803 9173 9d4ac3d6702779336866a42761854f9c ""
+  "q1.tex" 1724544089 9264 562f6e3bae0548c4b8b698d4af863440 ""
   "q2.tex" 1712719398 4420 2bb77004721e4fe4c061fd2588f5174f ""
   "q3.tex" 1712719398 18805 9d024c9480168d7e020016ecbd48b34c ""
   "std_macros.tex" 1712719398 11204 3ccbe10995adf29e39fb6e628340946b ""
