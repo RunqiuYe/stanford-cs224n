@@ -115,12 +115,25 @@ In many downstream applications using word embeddings, L2 normalized vectors (e.
 Compute the partial derivatives of $\bJ_{\text{naive-softmax}}(\bv_c, o, \bU)$ with respect to each of the `outside' word vectors, $\bu_w$'s. There will be two cases: when $w=o$, the true `outside' word vector, and $w \neq o$, for all other words. Please write your answer in terms of $\by$, $\hat{\by}$, and $\bv_c$. In this subpart, you may use specific elements within these terms as well (such as $\by_1$, $\by_2$, $\dots$). Note that $\bu_w$ is a vector while $\by_1, \by_2, \dots$ are scalars. Show your work to receive full credit.
 
 \ifans{
-    TO-DO
+    \[
+    \pd{\bJ_{\text{naive-softmax}}}{\bu_w} = - 1\{w = o\} \bv_c + \frac{\exp(\bu_w^\top \bv_c)}{\sum_{x} \exp(\bu_x^\top \bv_c)} \bv_c = - 1\{w = o\} \bv_c + \hat{\by}_w \bv_c.
+    \]
 }
 
 % Question 1-E
 \part[1]
 Write down the partial derivative of $\bJ_{\text{naive-softmax}}(\bv_c, o, \bU)$ with respect to $\bU$. Please break down your answer in terms of the column vectors $\frac{\partial \bJ(\bv_c, o, \bU)}{\partial \bu_1}$, $\frac{\partial \bJ(\bv_c, o, \bU)}{\partial \bu_2}$, $\cdots$, $\frac{\partial \bJ(\bv_c, o, \bU)}{\partial \bu_{|\text{Vocab}|}}$. No derivations are necessary, just an answer in the form of a matrix.
+
+\ifans{
+    We have
+    \[
+    \pd{\bJ_{\text{naive-softmax}}}{\bu_w} = - 1\{w = o\} \bv_c + \hat{\by}_w \bv_c,
+    \]
+    which makes the columns of the matrix. Therefore
+    \[
+    \pd{\bJ_{\text{naive-softmax}}}{\bU} = \bv_c (\hat \by - \by)^\top.
+    \]
+}
 
 
 \end{parts}
