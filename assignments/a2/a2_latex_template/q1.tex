@@ -105,12 +105,18 @@ In many downstream applications using word embeddings, L2 normalized vectors (e.
 
 \textbf{Hint:} Consider the case where $\mathbf{u}_x = \alpha\mathbf{u}_y$ for some words $x \neq y$ and some scalar $\alpha$. When $\alpha$ is positive, what will be the value of normalized  $\mathbf{u}_x$ and normalized $\mathbf{u}_y$? How might $\mathbf{u}_x$ and $\mathbf{u}_y$ be related for such a normalization to affect or not affect the resulting classification?
 
+\ifans{
+    When $\mathbf{u}_x = \alpha\mathbf{u}_y$ for some words $x \neq y$ and some positive scalar $\alpha$, their normalized value will be the same vector. By using L2 normalized vectors, the sum of individual embeddings changes, including its length and direction. When the length and direction matters, for example, when we classify based on the direction of the embedding sum, L2 normalization takes away useful information.
+}
+
 
 % Question 1-D
 \part[5] 
 Compute the partial derivatives of $\bJ_{\text{naive-softmax}}(\bv_c, o, \bU)$ with respect to each of the `outside' word vectors, $\bu_w$'s. There will be two cases: when $w=o$, the true `outside' word vector, and $w \neq o$, for all other words. Please write your answer in terms of $\by$, $\hat{\by}$, and $\bv_c$. In this subpart, you may use specific elements within these terms as well (such as $\by_1$, $\by_2$, $\dots$). Note that $\bu_w$ is a vector while $\by_1, \by_2, \dots$ are scalars. Show your work to receive full credit.
 
-
+\ifans{
+    TO-DO
+}
 
 % Question 1-E
 \part[1]
