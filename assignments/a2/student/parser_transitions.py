@@ -128,9 +128,6 @@ def minibatch_parse(sentences, model, batch_size):
                 remain.append(batch[i])
         unfinished_parses = remain
     dependencies = [part_parses.dependencies for part_parses in partial_parses]
-    return dependencies
-
-
     ### END YOUR CODE
 
     return dependencies
