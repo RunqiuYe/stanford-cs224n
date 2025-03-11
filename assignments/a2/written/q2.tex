@@ -31,7 +31,11 @@
                 where $\odot$ and $/$ denote elementwise multiplication and division (so $\bz \odot \bz$ is elementwise squaring) and $\beta_2$ is a hyperparameter between 0 and 1 (often set to  0.99). Since Adam divides the update by $\sqrt{\bv}$, which of the model parameters will get larger updates?  Why might this help with learning?
                 
                 \ifans{
-
+                The model without $\bv$ get larger updates. 
+                Smaller updates is a desirable feature because 
+                this shows that there is more uncertainty 
+                about the true direction of the gradient, 
+                indicating that the model is close to optimum.
                 }
                 
                 \end{subparts}
@@ -57,8 +61,16 @@
                 }
                 
             
-          \subpart[2] Why should dropout be applied during training? Why should dropout \textbf{NOT} be applied during evaluation? \textbf{Hint:} it may help to look at the dropout paper linked. \newline
+          \subpart[2] Why should dropout be applied during training? Why should dropout \textbf{NOT} be applied during evaluation? \textbf{Hint:} it may help to look at the dropout paper linked.
           
+          \ifans{
+          Dropout should be applied during training to reduce 
+          overfitting, and it can be treated as a combination 
+          of sparse networks. Dropout should not be applied 
+          during evaluation because we want to combine all the 
+          information from sparse networks, and use the full 
+          network to make predictions.
+          }
          
         \end{subparts}
 
