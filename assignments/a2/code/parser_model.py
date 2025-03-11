@@ -73,15 +73,15 @@ class ParserModel(nn.Module):
         ### 
         ### See the PDF for hints.
         x_dim = self.n_features * self.embed_size
-        self.embed_to_hidden_weight = nn.Parameter(torch.tensor(x_dim, self.hidden_size))
-        self.embed_to_hidden_bias = nn.Parameter(torch.tensor(self.hidden_size))
+        self.embed_to_hidden_weight = nn.Parameter(torch.empty((x_dim, self.hidden_size)))
+        self.embed_to_hidden_bias = nn.Parameter(torch.empty(self.hidden_size))
         nn.init.xavier_uniform_(self.embed_to_hidden_weight)
         nn.init.uniform_(self.embed_to_hidden_bias)
 
         self.dropout = nn.Dropout(self.dropout_prob)
         
-        self.hidden_to_logits_weight = nn.ParameterDict(torch.tensor(self.hidden_size, self.n_classes))
-        self.hidden_to_logits_bias = nn.Parameter(torch.tensor(self.n_classes))
+        self.hidden_to_logits_weight = nn.Parameter(torch.empty((self.hidden_size, self.n_classes)))
+        self.hidden_to_logits_bias = nn.Parameter(torch.empty(self.n_classes))
         nn.init.xavier_uniform_(self.hidden_to_logits_weight)
         nn.init.uniform_(self.hidden_to_logits_bias)
 
@@ -116,7 +116,7 @@ class ParserModel(nn.Module):
         ###     View: https://pytorch.org/docs/stable/tensors.html#torch.Tensor.view
         ###     Flatten: https://pytorch.org/docs/stable/generated/torch.flatten.html
 
-
+        x = torch.flatten(self.embeddings[w], start_dim=1)
 
         ### END YOUR CODE
         return x
