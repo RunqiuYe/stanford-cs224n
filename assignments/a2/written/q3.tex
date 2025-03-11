@@ -95,9 +95,41 @@ On each step, your parser will decide among the three transitions using a neural
     \begin{enumerate}[label=\roman*.]
     
         \item \textcolor{black}{Compute the derivative of $\bh = \relu(\bx \bW + \bb_1)$ with respect to $\bx$. For simplicity, you only need to show the derivative $\frac{\partial h_i}{\partial x_j}$ for some index $i$ and $j$. You may ignore the case where the derivative is not defined at 0.}
+        
+        \ifans{
+        We have 
+        \[
+        h_i = \relu (x_j W_{ji} + b_i).
+        \]
+        It follows that 
+        \[
+        \pd{h_i}{x_j} = 1 \left\{ b_i + x_j W_{ji} > 0 \right\}
+        W_{ji}.
+        \]
+        }
+
         \item \textcolor{black}{Recall in part 1b, we computed the partial derivative of $\bJ_{\text{naive-softmax}}(\bv_c, o, \bU)$. Likewise, please compute the partial derivative of $J(\theta)$ with respect to the $i$th entry of $\bl$, which is denoted as $\bl_i$. Specifically, compute $\frac{\partial CE(\by, \byt)}{\partial \bl_i}$, assuming that $\bl \in \R^3$, $\byt \in \R^3$, $\by \in \R^3$, and the true label is $c$. \\
         \textbf{Hints}: You may recall from part 1a, $\frac{\partial CE(\by, \byt)}{\partial \bl_i} = \sum_j \frac{\partial CE(\by, \byt)}{\partial \byt_j}\frac{\partial \byt_j}{\partial \bl_i}$, and $\frac{\partial CE(\by, \byt)}{\partial \byt_j}=0$ if $j \neq c$. 
         }
+
+        \ifans{
+        Note that 
+        \[
+        J(\theta) = - \log \hat{\by}_c = 
+        - \bl_c + \log \sum_j \exp (\bl_j).
+        \]
+        It follows that 
+        \[
+        \pd{J}{\bl_i} = - 1 \left\{ c = i \right\} + 
+        \frac{\bl_i}{\sum_j \exp (\bl_j)} 
+        = -1 \left\{ c = i \right\} + \hat{\by}_i.
+        \]
+        This implies that 
+        \[
+        \pd{J}{\bl} = \hat{\by} - \by.
+        \]
+        }
+
         \item We will use UAS score as our evaluation metric. UAS refers to Unlabeled Attachment Score, which is computed as the ratio between number of correctly predicted dependencies and the number of total dependencies despite of the relations (our model doesn't predict this).\newline
     
    In \texttt{parser\_model.py} you will find skeleton code to implement this simple neural network using PyTorch. Complete the \texttt{\_\_init\_\_}, \texttt{embedding\_lookup} and \texttt{forward} functions to implement the model. Then complete the \texttt{train\_for\_epoch} and \texttt{train} functions within the \texttt{run.py} file.
