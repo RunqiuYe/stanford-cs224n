@@ -1,6 +1,8 @@
 *.DS_Store
 *.vscode
 __pycache__/
+model.bin
+model.bin.optim
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
